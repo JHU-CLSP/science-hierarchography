@@ -42,7 +42,10 @@ For example: `2025-01-13_k-means_gpt4-naming_k=5_1900.json`
 ```
 ## Visualization Setup
 Make sure you have Streamlit and other required dependencies.
-
-``
+```
 pip install streamlit pandas numpy
-``
+```
+To run the visualization, run the code:
+```
+streamlit run app.py
+```
