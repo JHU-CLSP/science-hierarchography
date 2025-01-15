@@ -1,14 +1,9 @@
-By the visualization, you can:
+# Science Cartography 🎨
 
-- Navigate through different hierarchy .json file
-- View cluster statistics
-- Explore clusters / papers titles and abstracts
-
-The hierarchy .json files are in the /hierarchies directory, each file named in the format of: `DATE_ALG_HYPERPARAMS_PAPERCOUNT.json`  
-For example: `2025-01-13_k-means_gpt4-naming_k=5_1900.json`
+The goal of this project is to develop interpretable, hierarchical representation of science papers. 
 
 ## JSON Structure
-```
+```json
 {
   "clusters": [
     {
@@ -40,12 +35,24 @@ For example: `2025-01-13_k-means_gpt4-naming_k=5_1900.json`
   ]
 }
 ```
-## Visualization Setup
+
+## The Visualization Tool 
+By the visualization, you can:
+
+- Navigate through different hierarchy .json file
+- View cluster statistics
+- Explore clusters / papers titles and abstracts
+
+The hierarchy .json files are in the /hierarchies directory, each file named in the format of: `DATE_ALG_HYPERPARAMS_PAPERCOUNT.json`  
+For example: `2025-01-13_k-means_gpt4-naming_k=5_1900.json`
+
+
+### Setting up the Visualization Setup
 Make sure you have Streamlit and other required dependencies.
-```
+```shell 
 pip install streamlit pandas numpy
 ```
 To run the visualization, run the code:
-```
+```shell 
 streamlit run app.py
 ```
