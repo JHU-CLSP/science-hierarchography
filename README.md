@@ -54,5 +54,5 @@ pip install streamlit pandas numpy
 ```
 To run the visualization, run the code:
 ```console 
-streamlit run app.py
+streamlit run visualize.py
 ```

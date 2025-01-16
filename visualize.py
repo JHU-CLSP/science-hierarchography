@@ -6,7 +6,7 @@ import json
 from urllib.parse import quote, unquote
 
 def get_hierarchy_files():
-    hierarchy_dir = '/Users/muhangao/Desktop/science/hierarchies'
+    hierarchy_dir = 'hierarchies'
     if not os.path.exists(hierarchy_dir):
         return []
     return [f for f in os.listdir(hierarchy_dir) if f.endswith('.json')]
@@ -29,7 +29,7 @@ def format_hierarchy_option(filename):
     return f"{info['date']} - {info['algorithm']} (k={info['hyperparams'].split('=')[1]}, papers={info['paper_count']})"
 
 def load_hierarchy_data(filename):
-    filepath = os.path.join('/Users/muhangao/Desktop/science/hierarchies', filename)
+    filepath = os.path.join('hierarchies', filename)
     with open(filepath, 'r') as f:
         return json.load(f)
 
