@@ -102,7 +102,6 @@ def display_path_details(path, data):
     current = data["clusters"]
     levels = {0: 3, 1: 2, 2: 1}
     
-    # 创建path details部分
     for i, cluster_id in enumerate(path):
         level = levels.get(i, 1)
         indent = 0 if level == 3 else (32 if level == 2 else 64)
