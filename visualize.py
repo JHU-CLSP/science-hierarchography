@@ -96,23 +96,65 @@ def find_clusters_in_path(data, path):
 def display_path_details(path, data):
     if not path:
         return
-    
+
     st.markdown("### Path Details")
-    current = data["clusters"]
     
-    for cluster_id in path:
-        cluster = None
+    current = data["clusters"]
+    levels = {0: 3, 1: 2, 2: 1}
+    
+    for i, cluster_id in enumerate(path):
+        level = levels.get(i, 1)
+        indent = 0 if level == 3 else (32 if level == 2 else 64)
+        
         for c in current:
             if c["cluster_id"] == cluster_id:
-                cluster = c
+                st.markdown(f"""
+                    <div style='background: white; border-radius: 8px; 
+                            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                                      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                            border: 1px solid #E5E7EB; padding: 24px; 
+                            margin-left: {indent}px;
+                            position: relative;'>
+                        <div style='display: flex; align-items: center; 
+                                justify-content: space-between;
+                                margin-bottom: 16px; padding-bottom: 12px; 
+                                border-bottom: 1px solid #F3F4F6;'>
+                            <div style='display: flex; align-items: center;'>
+                                <div style='width: 12px; height: 12px; 
+                                        border-radius: 50%; background: #3B82F6; 
+                                        margin-right: 8px;'></div>
+                                <h4 style='font-size: 1.25rem; font-weight: 600; 
+                                        color: #1F2937;'>
+                                    Cluster {c["cluster_id"]}
+                                </h4>
+                            </div>
+                            <span style='background-color: #EBF5FF; color: #2563EB; 
+                                    padding: 8px 16px; border-radius: 9999px; 
+                                    font-weight: 700; font-size: 1.125rem;'>
+                                Level {level}
+                            </span>
+                        </div>
+                        <div>
+                            <h5 style='font-size: 0.875rem; font-weight: 500; 
+                                    color: #6B7280; text-transform: uppercase; 
+                                    letter-spacing: 0.05em; margin-bottom: 8px;'>
+                                Title
+                            </h5>
+                            <p style='color: #1F2937; margin-bottom: 16px;'>
+                                {c["title"]}
+                            </p>
+                            <h5 style='font-size: 0.875rem; font-weight: 500; 
+                                    color: #6B7280; text-transform: uppercase; 
+                                    letter-spacing: 0.05em; margin-bottom: 8px;'>
+                                Summary
+                            </h5>
+                            <p style='color: #374151;'>{c["abstract"]}</p>
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
+                
+                current = c["children"]
                 break
-        
-        if cluster:
-            st.markdown(f"**Cluster {cluster_id}**")
-            st.markdown(f"- **Name:** {cluster['title']}")
-            st.markdown(f"- **Summary:** {cluster['abstract']}")
-            st.markdown("---")
-            current = cluster["children"]
 
 def main():
     st.set_page_config(layout="wide")
@@ -175,10 +217,21 @@ def main():
                 col.metric(label=key, value=value)
         
         if st.session_state.path:
-            path_str = " > ".join([f"Cluster {cid}" for cid in st.session_state.path])
+            path_elements = []
+            current = data["clusters"]
+            for i, cid in enumerate(st.session_state.path):
+                level = 3 - i
+                for c in current:
+                    if c["cluster_id"] == cid:
+                        path_elements.append(f"Cluster {cid} (Level {level})")
+                        current = c["children"]
+                        break
+            
+            path_str = " > ".join(path_elements)
             st.markdown(f"**Current Path**: {path_str}")
-            display_path_details(st.session_state.path, data)
-        
+
+        display_path_details(st.session_state.path, data)
+        st.markdown("<div style='margin-bottom: 48px;'></div>", unsafe_allow_html=True)
         st.subheader(f'{level_name}')
         
         for item, full_path in current_clusters:
