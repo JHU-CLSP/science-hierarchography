@@ -5,9 +5,15 @@ import openai
 from clustering_level1 import generate_embeddings
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+import os
+from dotenv import load_dotenv
 
+# Load variables from the .env file
+load_dotenv()
 
-openai.api_key = 'YOUR_API_KEY'
+# Get the API key
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 
 # Load DataFrame and embeddings
 df = pd.read_csv("approach1/results/cluster_438.csv")  # Replace with the actual file name

@@ -6,8 +6,15 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import re
 import pickle
-openai.api_key = 'YOUR_API_KEY'
+import os
+from dotenv import load_dotenv
 
+# Load variables from the .env file
+load_dotenv()
+
+# Get the API key
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 # Function to generate embeddings using OpenAI API
 def generate_embeddings(texts):
     embeddings = []
@@ -27,6 +34,10 @@ def generate_embeddings(texts):
 
 #read csv file
 summaries_df = pd.read_csv('approach1/results/summaries_topics.csv')
+
+# drop rows with missing values
+summaries_df.dropna(inplace=True)
+
 summaries = summaries_df["Summary"].tolist()
 embeddings = generate_embeddings(summaries)
 

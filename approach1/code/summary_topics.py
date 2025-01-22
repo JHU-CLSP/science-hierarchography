@@ -3,8 +3,15 @@ import os
 import openai
 import pandas as pd
 import re
+import os
+from dotenv import load_dotenv
 
-openai.api_key = 'YOUR_API_KEY'
+# Load variables from the .env file
+load_dotenv()
+
+# Get the API key
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 
 
 def extract_title_and_abstract_from_folder(input_folder, output_folder):
@@ -169,6 +176,6 @@ updated_df = parse_json_column(df, "json_output")
 updated_df = updated_df.drop(columns=["json_output"])
 
 # save the updated dataframe to a new csv file
-updated_df.to_csv('results/summaries_topics.csv', index=False)
+updated_df.to_csv('approach1/results/summaries_topics.csv', index=False)
 print('Dataframe saved to CSV file.')
 print('Processed summaries and topics saved to summaries_topics.csv')
