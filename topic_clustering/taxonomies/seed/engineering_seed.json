@@ -1,0 +1,137 @@
+{
+    "Engineering": {
+      "Biomedical Engineering": {
+        "Bioinformatics": {},
+        "Bioinstrumentation": {},
+        "Biomaterials": {},
+        "Biomechanics": {},
+        "Biomolecular Engineering": {}
+      },
+      "Chemical Engineering": {
+        "Electrochemical Engineering": {},
+        "Explosives Engineering": {},
+        "Molecular Engineering": {},
+        "Process Engineering": {}
+      },
+      "Civil Engineering": {
+        "Civionics": {},
+        "Environmental Engineering": {
+          "Ecological Engineering": {},
+          "Fire Protection Engineering": {},
+          "Natural Resources Engineering": {},
+          "Sanitary Engineering": {}
+        },
+        "Geotechnical Engineering": {
+          "Mining Engineering": {}
+        },
+        "Municipal or Urban Engineering": {},
+        "Structural Engineering": {
+          "Architectural Engineering": {},
+          "Construction Engineering": {},
+          "Earthquake Engineering": {},
+          "Ocean Engineering": {},
+          "Pavement Engineering": {},
+          "Wind Engineering": {},
+          "Tropical Cyclone Engineering": {}
+        },
+        "Transport Engineering": {
+          "Railway Engineering": {},
+          "Traffic Engineering": {},
+          "Bicycle Transportation Engineering": {},
+          "Highway Engineering": {}
+        },
+        "Water Resources Engineering": {
+          "Coastal Engineering": {},
+          "Groundwater Engineering": {},
+          "Hydraulic Engineering": {},
+          "River Engineering": {}
+        }
+      },
+      "Electrical Engineering": {
+        "Computer Engineering": {
+          "Hardware Engineering": {},
+          "Software Engineering": {},
+          "Network Engineering": {}
+        },
+        "Electronic Engineering": {
+          "Microelectronics Engineering": {},
+          "Nanoelectronics": {},
+          "Optoelectronics": {},
+          "Power Electronics": {}
+        },
+        "Optical Engineering": {},
+        "Power Engineering": {},
+        "Telecommunications Engineering": {}
+      },
+      "Materials Engineering": {
+        "Ceramic Engineering": {},
+        "Electronic Materials": {},
+        "Metallurgical Engineering": {},
+        "Polymer Engineering": {}
+      },
+      "Mechanical Engineering": {
+        "Acoustical Engineering": {},
+        "Aerospace Engineering": {
+          "Aeronautical Engineering": {},
+          "Astronautical Engineering": {}
+        },
+        "Automotive Engineering": {},
+        "Marine Engineering": {},
+        "Thermal Engineering": {},
+        "Manufacturing Engineering": {}
+      },
+      "Interdisciplinary": {
+        "Information Engineering": {
+          "Machine Learning": {},
+          "Data Science": {},
+          "Artificial Intelligence": {},
+          "Control Theory": {},
+          "Signal Processing": {},
+          "Telecommunications": {},
+          "Image Processing": {},
+          "Information Theory": {},
+          "Computer Vision": {},
+          "Natural Language Processing": {},
+          "Bioinformatics": {},
+          "Medical Image Computing": {},
+          "Autonomous Robotics": {},
+          "Mobile Robotics": {}
+        },
+        "Industrial Engineering": {
+          "Component Engineering": {},
+          "Construction Engineering": {},
+          "Manufacturing Engineering": {},
+          "Methods Engineering": {},
+          "Operations Engineering": {},
+          "Packaging Engineering": {},
+          "Production Engineering": {},
+          "Project Engineering": {},
+          "Quality Engineering": {},
+          "Reliability Engineering": {},
+          "Safety Engineering": {},
+          "Supply Chain Engineering": {},
+          "Systems Engineering": {},
+          "Usability Engineering": {}
+        },
+        "Mechatronics Engineering": {
+          "Automation Engineering": {},
+          "Robotics Engineering": {},
+          "Instrumentation Engineering": {},
+          "Optomechatronics Engineering": {},
+          "Biomechatronics Engineering": {},
+          "Avionics": {}
+        },
+        "Engineering Management": {},
+        "Military Engineering": {
+          "Combat Engineering": {}
+        },
+        "Mining Engineering": {},
+        "Quantum Engineering": {
+          "Quantum Properties of Nanomaterials": {},
+          "Nanoelectronics": {},
+          "Nano-scale Devices": {}
+        }
+      }
+    }
+  }
+  
