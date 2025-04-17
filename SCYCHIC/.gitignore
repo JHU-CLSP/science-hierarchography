@@ -1,0 +1,22 @@
+# 忽略Python编译文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 忽略大型数据文件
+*.bin
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.env
+embeddings/
+abstracts/
+input_papers/
+dataset_10k/
+evaluator/
+results/
+
+# 忽略日志文件
+*.log
+*.out
