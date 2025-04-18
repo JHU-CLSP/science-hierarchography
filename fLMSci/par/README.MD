@@ -18,7 +18,7 @@ Example run:
 python fLMSci/par/baseline.py \
     --topics_path /path/to/unique_topics.txt \
     --taxonomy_path /path/to/science_seed.json \
-    --output_path /path/to/results.xlsx \
+    --output_path /path/to/results/taxonomy_creation_outputs.xlsx \
     --chunk_size 100 \
     --max_iterations 2 \
     --retries 1
@@ -36,9 +36,9 @@ python merge_taxonomy_outputs.py \
 
 ```bash
 python map_papers.py \
-    --csv_path /path/to/final_outputs_updated.csv \
-    --taxonomy_path /path/to/merged_taxonomy_soc_sci.json \
-    --output_path /path/to/merged_taxonomy_soc_sci_w_papers.json
+    --csv_path /path/to/results/topics_rationales.csv \
+    --taxonomy_path /path/to/results/topics_taxonomy.json \
+    --output_path /path/to/results/topics_taxonomy_papers.json
 ```
 
 
