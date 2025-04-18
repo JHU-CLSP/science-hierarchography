@@ -1,0 +1,30 @@
+Read the above given Title and Abstract for a research paper and 
+Generate topics that are represented in the given Title and Abstract.
+
+Example output format:
+```json
+{
+  "topics": [
+    {
+      "topic": "Entity Taxonomy Creation",
+      "rationale": "The research focuses on generating a comprehensive entity taxonomy using LLMs."
+    },
+    {
+      "topic": "Iterative Prompting Techniques",
+      "rationale": "Highlights the use of iterative prompting to refine entity classifications."
+    },
+    {
+      "topic": "GPT-4 and GPT-4 Turbo",
+      "rationale": "Explores the capabilities of these advanced LLMs in taxonomy development."
+    },
+    {
+      "topic": "Information Extraction",
+      "rationale": "Demonstrates applications like relation and event argument extraction."
+    },
+    {
+      "topic": "Computational Linguistics",
+      "rationale": "Emphasizes contributions to AI-related and linguistic computational tasks."
+    }
+  ]
+}
+```
