@@ -1,4 +1,4 @@
-# SCIENCE HIERARCHOGRAPHY: Hierarchical Organization of Science Literature
+# 🎨 SCIENCE HIERARCHOGRAPHY: Hierarchical Organization of Science Literature
 
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
 
