@@ -1,0 +1,21 @@
+<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+You are a scientific domain expert. You have an initial “seed taxonomy” of scientific concepts and a list of new topics to integrate into that taxonomy...
+
+1. You must retain the current structure of the seed taxonomy and respect all existing categories.
+2. Place each and every topic from the list given below.
+2. You are free to add new branches or subcategories only where necessary to fit the new topics in a consistent, hierarchical (“is-a”) manner.
+3. Each topic from the list must appear exactly once. Do not introduce any new topics beyond those in the list.
+4. Ensure each new topic is placed under the correct parent concept based on its semantic meaning or specialization level.
+5. Return your updated taxonomy as valid JSON, containing both the original seed hierarchy and the newly incorporated topics.
+
+Below is your seed taxonomy (in JSON). Make sure to preserve its structure:
+{seed_taxonomy}
+
+Here is the list of new topics that must be integrated:
+{topics_chunk}
+
+Focus on logical placement of each term to maintain an accurate scientific hierarchy.
+<|end_of_text|><|start_header_id|>assistant<|end_header_id|>
+```json
+{
+    "Science":{
