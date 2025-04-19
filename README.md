@@ -67,7 +67,7 @@ python main.py \
   --embedding_source all
 ```
 
-## 📝 Parameters Explanation
+### 3. Parameters Explanation
 - **embedding_generator**: Model used to generate embeddings (options: qwen, gpt, etc.)
 - **summary_generator**: Model used to generate summaries for clusters
 - **clustering_method**: Algorithm for clustering (options: kmeans, hierarchical, etc.)
