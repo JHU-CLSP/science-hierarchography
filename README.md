@@ -10,9 +10,10 @@ The goal of this project is to develop interpretable, hierarchical representatio
 
 ## 📋 Table of Contents
 - [Requirements](#requirements)
-- [Installation](#installation)
 - [Data Preparation](#data-preparation)
-- [Hierarchy Generation](#hierarchy-generation)
+- [Approaches](#approaches)
+  - [SciChic Hierarchy Generation](#scichic-hierarchy-generation)
+  - [fLMSci Pipeline](#flmsci-pipeline)
 - [Parameters Explanation](#parameters-explanation)
 
 ## 💡 Requirements
@@ -37,17 +38,19 @@ cd download/
 # python download_scipile.py --output_dir ./data/
 ```
 
-## 🔮 SciChic: Hierarchy Generation
+## 🔬 Approaches
+
+### 🔮 SciChic Hierarchy Generation
 The process has two main steps:
 
-### 1. Generate Embeddings
+#### Generate Embeddings
 First, make sure you have generated all the embeddings for your papers using:
 
 ```bash
 python generate.py --input_folder /path/to/your/papers --output_file ./embeddings/your_embedding_name.pkl
 ```
 
-### 2. Create Hierarchy
+#### Create Hierarchy
 Then you can start creating the hierarchy with:
 
 ```bash
@@ -67,14 +70,52 @@ python main.py \
   --embedding_source all
 ```
 
-### 3. Parameters Explanation
-- **embedding_generator**: Model used to generate embeddings (options: qwen, gpt, etc.)
+#### Parameters Explanation
+- **embedding_generator**: Model used to generate embeddings (options: qwen, llama, etc.)
 - **summary_generator**: Model used to generate summaries for clusters
 - **clustering_method**: Algorithm for clustering (options: kmeans, hierarchical, etc.)
-- **clustering_direction**: Direction of hierarchy building (top_down, bottom_up or bidirectional)
-- **cluster_sizes**: Number of clusters at each level of the hierarchy from bottom to top
+- **clustering_direction**: Direction of hierarchy building (top_down or bottom_up)
+- **cluster_sizes**: Number of clusters at each level of the hierarchy
 - **embedding_source**: Contribution type used to create the hierarchy:
   - **all**: Use all paper content
   - **problem**: Focus on problem statements
   - **solution**: Focus on proposed solutions
   - **results**: Focus on research results
+
+### 🧵 fLMSci Pipeline
+fLMSci is an LLM-based scientific hierarchography creation pipeline that offers two approaches:
+
+#### Pipeline Types
+
+| Script      | Pipeline type | Main steps                                                   |
+| ----------- | ------------- | ------------------------------------------------------------ |
+| run_par.sh  | Parallel      | 1. Generate topics & rationales → 2. Place topics in parallel → 3. Merge chunked taxonomy → 4. Map papers → (optional) Evaluate |
+| run_incr.sh | Incremental   | 1. Generate topics & rationales → 2. Incrementally place each topic → 3. Map papers → (optional) Evaluate |
+
+#### Setup & Execution
+
+Before running the pipelines, you need to:
+1. Place JSON files inside the `jsons` folder
+2. Give the shell scripts execute permission (one-time step):
+   ```bash
+   chmod +x run_par.sh run_incr.sh
+   ```
+
+#### Running the Parallel Pipeline
+```bash
+bash run_par.sh                # basic run
+bash run_par.sh --evaluate     # run + evaluation
+```
+
+#### Running the Incremental Pipeline
+```bash
+bash run_incr.sh               # basic run
+bash run_incr.sh --evaluate    # run + evaluation
+```
+
+You can also customize the run with additional parameters:
+```bash
+bash run_incr.sh --batch_size 16 --max_depth 8 --evaluate
+```
+
+Note: Each pipeline can also be run step by step by following their individual README files.

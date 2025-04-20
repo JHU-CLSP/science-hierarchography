@@ -23,13 +23,14 @@ from transformers import AutoTokenizer
 parser = argparse.ArgumentParser(description="Taxonomy placement using LLaMA.")
 parser.add_argument('--topics_path', type=str, required=True, help="Path to topics file")
 parser.add_argument('--taxonomy_path', type=str, required=True, help="Path to seed taxonomy JSON file")
+parser.add_argument('--prompt_path', type=str, help="Path to prompt file")
 parser.add_argument('--output_path', type=str, required=True, help="Output Excel file to save results")
 parser.add_argument('--chunk_size', type=int, default=100, help="Number of topics per chunk")
 parser.add_argument('--max_iterations', type=int, default=2, help="Max retry iterations per chunk")
 parser.add_argument('--retries', type=int, default=1, help="Max LLM retries per attempt")
 
 args = parser.parse_args()
-
+print(f"Got seed taxonomy: {args.taxonomy_path}", flush=True)
 # -------------------------------
 # Load Model & Tokenizer
 # -------------------------------
@@ -53,6 +54,14 @@ SAMPLING = SamplingParams(
 )
 print("✅  Model ready.", flush=True)
 print("Model and pipeline loaded successfully.", flush=True)
+
+def make_prompt_safe(prompt_template):
+    # Escape all braces first
+    safe_prompt = prompt_template.replace("{", "{{").replace("}", "}}")
+    # Restore the formatting fields we want to keep
+    safe_prompt = safe_prompt.replace("{{topics_chunk}}", "{topics_chunk}")
+    safe_prompt = safe_prompt.replace("{{seed_taxonomy}}", "{seed_taxonomy}")
+    return safe_prompt
 
 # -------------------------------
 # Utility: Text Generation
@@ -131,11 +140,12 @@ def process_chunk(topics_chunk, seed_taxonomy, chunk_id, retries, prompt):
         try:
             calls_made += 1
             prompt_formatted = prompt.format(
-                topics=topics_chunk,
-                taxonomy=seed_taxonomy
+                topics_chunk=topics_chunk,
+                seed_taxonomy=seed_taxonomy
             )
+            
             chat_prompt = tokenizer.apply_chat_template(
-                [{"role": "user", "content": prompt}],
+                [{"role": "user", "content": prompt_formatted}],
                 add_generation_prompt=True,
                 tokenize=False
             )
@@ -159,7 +169,7 @@ def process_chunk(topics_chunk, seed_taxonomy, chunk_id, retries, prompt):
 # -------------------------------
 # Wrapper: Retry Missing Topics
 # -------------------------------
-def process_chunk_wrapper(chunk_id, topics_chunk, prompt):
+def process_chunk_wrapper(chunk_id, topics_chunk, prompt, seed_taxonomy):
     current_taxonomy = seed_taxonomy
     topics_for_iteration = topics_chunk[:]
     final_taxonomy_str = None
@@ -209,11 +219,12 @@ def process_chunk_wrapper(chunk_id, topics_chunk, prompt):
 # Process All Chunks
 # -------------------------------
 # read prompt from file
-with open('science-cartography/fLMSci/prompts/parallel_placement.txt', 'r') as file:
-    prompt = file.read()
+with open(args.prompt_path, 'r') as file:
+    raw_prompt = file.read()
+prompt = make_prompt_safe(raw_prompt)  
 results_list = []
 for chunk_id, chunk in enumerate(chunked_topics, start=1):
-    result = process_chunk_wrapper(chunk_id, chunk, prompt)
+    result = process_chunk_wrapper(chunk_id, chunk, prompt, seed_taxonomy)
     results_list.append(result)
     print(f"Finished chunk {chunk_id}", flush=True)
 
