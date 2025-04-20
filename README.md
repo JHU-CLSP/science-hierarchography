@@ -33,9 +33,7 @@ We have two paper collections available:
 You can use the following command to download:
 ```bash
 cd download/
-# Add actual download commands here
-# For example:
-# python download_scipile.py --output_dir ./data/
+TODO
 ```
 
 ## 🔬 Approaches
