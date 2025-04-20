@@ -1,0 +1,63 @@
+{
+    "Science":{
+        "Formal Sciences":{
+            "Logic":{},
+            "Mathematics":{},
+            "Statistics":{},
+            "Computer Science":{},
+            "Information Theory":{},
+            "Systems Theory":{},
+            "Decision Theory":{}
+        },
+        "Natural Sciences":{
+            "Physical Science":{
+                "Physics":{
+                    "Classical Mechanics":{},
+                    "Thermodynamics and statistical mechanics":{},
+                    "Electromagnetism and photonics":{},
+                    "Relativity":{},
+                    "Quantum Mechanics":{},
+                    "Atomic and molecular physics":{},
+                    "Condensed matter physics":{},
+                    "Optics and acoustics":{},
+                    "High energy particle physics":{},
+                    "Nuclear physics":{},
+                    "Cosmology":{},
+                    "Interdisciplinary Physics":{}
+                },
+                "Chemistry":{
+                    "Physical Chemistry":{},
+                    "Organic Chemistry":{},
+                    "Inorganic Chemistry":{},
+                    "Analytical Chemistry":{},
+                    "Biological Chemistry":{},
+                    "Theoretical Chemistry":{},
+                    "Interdisciplinary Chemistry":{}
+                },
+                "Earth Science":{},
+                "Astronomy":{},
+                "Geology":{},
+                "Oceanography":{},
+                "Meteorology":{}
+            },
+            "Biological Sciences":{
+                "Biochemistry":{},
+                "Cell Biology":{},
+                "Genetics":{},
+                "Ecology":{},
+                "Microbiology":{},
+                "Botany":{},
+                "Zoology":{}
+            }
+        },
+        "Social Sciences":{
+            "Anthropology":{},
+            "Economics":{},
+            "Political Science":{},
+            "Sociology":{},
+            "Psychology":{},
+            "Geography":{},
+            "History":{}
+        }
+    }
+}
