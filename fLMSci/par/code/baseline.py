@@ -23,14 +23,18 @@ from transformers import AutoTokenizer
 parser = argparse.ArgumentParser(description="Taxonomy placement using LLaMA.")
 parser.add_argument('--topics_path', type=str, required=True, help="Path to topics file")
 parser.add_argument('--taxonomy_path', type=str, required=True, help="Path to seed taxonomy JSON file")
+
 parser.add_argument('--prompt_path', type=str, help="Path to prompt file")
+
 parser.add_argument('--output_path', type=str, required=True, help="Output Excel file to save results")
 parser.add_argument('--chunk_size', type=int, default=100, help="Number of topics per chunk")
 parser.add_argument('--max_iterations', type=int, default=2, help="Max retry iterations per chunk")
 parser.add_argument('--retries', type=int, default=1, help="Max LLM retries per attempt")
 
 args = parser.parse_args()
+
 print(f"Got seed taxonomy: {args.taxonomy_path}", flush=True)
+
 # -------------------------------
 # Load Model & Tokenizer
 # -------------------------------
