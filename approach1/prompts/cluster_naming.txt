@@ -1,6 +1,0 @@
-Generate a concise and meaningful name along with a summary for this cluster.
-Output Format:
-```json
-{"Cluster Name": "...", 
-"Cluster Summary": "..."}
-```

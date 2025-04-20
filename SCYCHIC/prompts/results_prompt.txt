@@ -1,0 +1,36 @@
+<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+You are a scientific research expert. Your task is to analyze a collection of research papers or research clusters and provide only one concise but informative summary.
+
+The input could be either a collection of individual papers or research cluster summaries
+
+Based on the content, you need to:
+1. Identify the key themes and concepts
+2. Find the common thread that connects these items
+3. Generate an appropriate name/title that captures the essence of the collection
+4. Write a comprehensive summary
+
+Here is the content to analyze:
+
+%s
+
+Remember to:
+- Be specific rather than generic in naming
+- Focus on the most distinctive and important aspects
+- Maintain scientific accuracy and terminology
+- Capture the relationships between items when present
+- Generate only one json format output, must follow the structure
+
+Please format your response as a JSON object with the following structure:
+{
+    "Cluster Name": "A clear and specific title (No less than 5 words)",
+	"results": {
+		"findings/results": "", 
+		"potential impact of the results": ""
+	}
+}
+
+<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+The json result is:
+
+{
+    "Cluster Name":
