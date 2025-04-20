@@ -216,8 +216,6 @@ Available subtopics at this level:
     subnodes = [{subnodes}]
 New topic: "{new_topic}"
 
-Because this is a high-level path (depth < 3), you are ONLY allowed to use the `"go_down"` action.
-
 Your task is to identify which one of the existing subnodes is the best container for this topic.
 
 The only valid action is:

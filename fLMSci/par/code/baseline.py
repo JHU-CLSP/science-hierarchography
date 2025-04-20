@@ -130,8 +130,12 @@ def process_chunk(topics_chunk, seed_taxonomy, chunk_id, retries, prompt):
     for attempt in range(retries):
         try:
             calls_made += 1
+            prompt_formatted = prompt.format(
+                topics=topics_chunk,
+                taxonomy=seed_taxonomy
+            )
             chat_prompt = tokenizer.apply_chat_template(
-                [{"role": "user", "content": f'''{prompt}'''}],
+                [{"role": "user", "content": prompt}],
                 add_generation_prompt=True,
                 tokenize=False
             )
@@ -139,7 +143,6 @@ def process_chunk(topics_chunk, seed_taxonomy, chunk_id, retries, prompt):
             prompt_tokens = len(tokenizer.encode(prompt))
             response_tokens = len(tokenizer.encode(resp))
             tokens_used += (prompt_tokens + response_tokens)
-            print(f"Printing response: {resp}", flush=True)
             json_match = re.search(r'```json(.*?)```', resp, re.DOTALL)
             reply_content = json_match.group(1).strip() if json_match else resp
 
