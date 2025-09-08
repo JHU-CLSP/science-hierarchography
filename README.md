@@ -117,3 +117,19 @@ bash run_incr.sh --batch_size 16 --max_depth 8 --evaluate
 ```
 
 Note: Each pipeline can also be run step by step by following their individual README files.
+
+## Demo of the resulting hierarchyies
+See this Huggingface demo: https://huggingface.co/spaces/jhu-clsp/ScienceHierarchography 
+
+## Relevant reference 
+```bib
+@article{gao2025sciencehierarchographyhierarchicalorganization,
+      title={Science Hierarchography: Hierarchical Organization of Science Literature}, 
+      author={Muhan Gao and Jash Shah and Weiqi Wang and Daniel Khashabi},
+      year={2025},
+      eprint={2504.13834},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2504.13834}, 
+}
+```
