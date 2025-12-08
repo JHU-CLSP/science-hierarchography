@@ -30,11 +30,7 @@ We have two paper collections available:
 - The 2k paper collection **SciPile**
 - The 10k paper collection **SciPileLarge**
 
-You can use the following command to download:
-```bash
-cd download/
-TODO
-```
+You can download the data from the following link: https://huggingface.co/datasets/MuhanGao/science-hierarchography 
 
 ## 🔬 Approaches
 
