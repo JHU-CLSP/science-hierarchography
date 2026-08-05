@@ -120,7 +120,7 @@ See this Huggingface demo: https://huggingface.co/spaces/jhu-clsp/ScienceHierarc
 ## Relevant reference 
 ```bib
 @article{gao2025sciencehierarchographyhierarchicalorganization,
-      title={Science Hierarchography: Hierarchical Organization of Science Literature}, 
+      title={From Papers to Panoramas: Building Hierarchies of Scientific Literature at Scale}, 
       author={Muhan Gao and Jash Shah and Weiqi Wang and Daniel Khashabi},
       year={2025},
       eprint={2504.13834},
